@@ -7,20 +7,31 @@ const count = 10
 const apiKey = 'B95uhSaFJS3TpvI6FltGY8NCmbBS-tu5o8SKxzTFQRU'
 const baseURL = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`
 
+// 設定元素屬性
+function setAttributes(element, attribute) {
+  for (const key in attribute) {
+    element.setAttribute(key, attribute[key])
+  }
+}
+
 // 抓取 DOM 元素並將資料入頁面
 function displayPhotos() {
   photosArray.forEach((photo) => {
     // 建立 a 標籤並設定 href 屬性
 
     const item = document.createElement('a')
-    item.setAttribute('href', photo.links.html)
-    item.setAttribute('target', '_blank')
+    setAttributes(item, {
+      href: photo.links.html,
+      target: '_blank',
+    })
 
     // 建立 img 標籤並設定 src 屬性
     const img = document.createElement('img')
-    img.setAttribute('src', photo.urls.regular)
-    img.setAttribute('alt', photo.alt_description)
-    img.setAttribute('title', photo.alt_description)
+    setAttributes(img, {
+      src: photo.urls.regular,
+      alt: photo.alt_description,
+      title: photo.alt_description,
+    })
 
     // 將 img 標籤放入 a 標籤
     item.appendChild(img)
