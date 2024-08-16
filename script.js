@@ -79,6 +79,7 @@ window.addEventListener('scroll', () => {
     console.log('load more')
     ready = false
 
+    loading.hidden = false
     getPhotos()
   }
 })
