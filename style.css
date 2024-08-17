@@ -35,7 +35,10 @@ h1 {
 }
 
 .image-container {
-  margin: 10px 30%;
+  /* margin: 10px 30%;   */
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .image-name {
@@ -57,5 +60,6 @@ h1 {
 
   .image-container {
     margin: 10px;
+    grid-template-columns: 1fr 1fr;
   }
 }
